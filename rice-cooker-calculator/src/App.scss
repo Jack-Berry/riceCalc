@@ -1,0 +1,452 @@
+// VARIABLES
+
+$col-a: #e8dab2;
+$col-b: #dd6e42;
+$col-c: #e1cfc2;
+$col-d: #4f6d7a;
+$col-e: #d5bdaf;
+
+// VARIABLES
+
+#root {
+  max-width: 1280px;
+  min-height: 800px;
+  margin: 20px;
+  width: 80%;
+  text-align: center;
+  background-color: $col-a;
+  border: 5px solid $col-b;
+  border-radius: 5%;
+}
+
+.App-header {
+  position: relative;
+  padding: 20px;
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    font-size: 45px;
+    color: $col-b;
+  }
+
+  button {
+    position: absolute;
+    top: -25px;
+    right: 50px;
+    width: 50px;
+    height: 50px;
+    background-color: $col-b;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 6;
+  }
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(4px);
+  background-color: rgba(255, 239, 213, 0.4);
+  z-index: 2;
+}
+
+.dropdown {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+  height: 650px;
+  top: -60px;
+  right: 50%;
+  transform: translateX(50%);
+  z-index: 5;
+  background-color: $col-a;
+  border: 5px solid $col-b;
+  color: $col-b;
+  border-radius: 5%;
+  padding: 10px;
+
+  hr {
+    width: 100%;
+    border: 1px solid $col-b;
+    margin: 30px 0;
+  }
+
+  input {
+    width: 100px;
+    margin-bottom: 10px;
+  }
+
+  div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .yield-calc {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+}
+
+.main-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.centre-container {
+  display: flex;
+  width: 100%;
+  min-height: 350px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 100px;
+
+  .bowl-graphic {
+    position: relative;
+    width: 30%;
+    height: fit-content;
+    background-color: $col-c;
+    border: 4px solid $col-b;
+    border-radius: 5%;
+
+    img {
+      width: 100%;
+      display: block;
+    }
+    .steam-container {
+      position: absolute;
+      // top: -60px; // adjust based on your bowl
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      pointer-events: none;
+
+      .steam {
+        width: 20px;
+        height: 60px;
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.inputs-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+  gap: 20px;
+
+  .calculator-input {
+    width: 30%;
+  }
+}
+
+input {
+  text-align: center;
+  background-color: $col-c;
+  color: $col-b;
+  border: $col-b 2px solid;
+}
+
+.calculator-input {
+  position: relative;
+  width: 30%;
+  height: 250px; // fixed height so tab doesn't move
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; // ensure content starts at the top
+  align-items: center;
+  padding-top: 40px; // space for tab buttons
+
+  input {
+    width: 80px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  select {
+    // width: 100%;
+    background-color: $col-c;
+    color: $col-b;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+
+    option {
+      background-color: $col-c;
+      color: $col-b;
+    }
+  }
+
+  label,
+  small {
+    width: 100%;
+    color: $col-b;
+  }
+
+  .tabs {
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    background-color: $col-a;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    z-index: 1;
+
+    button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 0;
+      color: $col-b;
+
+      &.active {
+        font-weight: bold;
+        border-bottom: 2px solid $col-b;
+      }
+    }
+  }
+}
+
+.water-container {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  color: $col-b;
+  .texture-slider {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  input[type="range"].slider {
+    width: 200px;
+    height: 6px;
+    background: transparent;
+    accent-color: $col-b;
+    margin: 20px;
+    border: none;
+
+    // Track styles (Chrome, Safari, Edge)
+    &::-webkit-slider-runnable-track {
+      height: 6px;
+      background: $col-c;
+      border-radius: 3px;
+      border: 1px solid $col-b;
+    }
+
+    // Thumb styles (Chrome, Safari, Edge)
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      background-color: $col-b; // <- ORANGE!
+      border: 1px solid $col-d;
+      border-radius: 50%;
+      cursor: pointer;
+      margin-top: -7px;
+    }
+
+    // Firefox track
+    &::-moz-range-track {
+      height: 6px;
+      background-color: $col-c;
+      border-radius: 3px;
+      border: 1px solid $col-b;
+    }
+
+    // Firefox thumb
+    &::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      background-color: $col-b; // <- ORANGE!
+      border: 2px solid $col-d;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    // IE/Edge Legacy (optional)
+    &::-ms-thumb {
+      width: 20px;
+      height: 20px;
+      background-color: $col-b; // <- ORANGE!
+      border: 1px solid $col-d;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    &::-ms-track {
+      height: 6px;
+      background: transparent;
+      border-color: transparent;
+      color: transparent;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .calculator-input {
+    height: auto;
+  }
+}
+
+.instructions {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  width: 80%;
+  border: 2px solid $col-b;
+  border-radius: 5px;
+  padding: 20px;
+  background-color: $col-c;
+  text-align: center;
+
+  h3 {
+    font-size: 28px;
+    text-decoration: underline;
+    color: $col-b;
+    margin: 0;
+  }
+
+  p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+    color: $col-b;
+  }
+}
+
+/* ========== RESPONSIVE STYLES ========== */
+
+@media (max-width: 1024px) {
+  .centre-container {
+    gap: 60px;
+
+    .bowl-graphic {
+      width: 40%;
+    }
+
+    .calculator-input {
+      width: 40%;
+    }
+  }
+
+  .water-container {
+    width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  .App-header h1 {
+    font-size: 36px;
+  }
+
+  .App-header button {
+    top: -33px;
+    right: 42px;
+  }
+
+  .dropdown {
+    top: -56px;
+  }
+
+  .centre-container {
+    // width: 100%;
+    .inputs-row {
+      flex-direction: column;
+      align-items: center;
+
+      .bowl-graphic {
+        order: 0;
+        width: 60%;
+        margin-bottom: 20px;
+        max-width: 250px;
+        max-height: 250px;
+      }
+
+      .uncooked-input {
+        order: 1;
+        width: 80%;
+      }
+
+      .cooked-input {
+        order: 2;
+        width: 80%;
+      }
+    }
+    .calculator-input {
+      width: 80%;
+      height: auto; // allow height to adjust based on content
+    }
+  }
+
+  .water-container {
+    width: 80%;
+  }
+}
+
+@media (max-width: 555px) {
+  #root {
+    border-radius: 0;
+  }
+  .App-header button {
+    top: -35px;
+    right: 40px;
+  }
+
+  .dropdown {
+    top: -56px;
+    // width: 87%;
+    border-radius: 0;
+  }
+
+  .centre-container {
+    .inputs-row {
+      flex-direction: column;
+      align-items: center;
+
+      .calculator-input {
+        width: 80%;
+      }
+    }
+  }
+}
