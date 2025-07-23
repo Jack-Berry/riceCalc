@@ -105,6 +105,16 @@ $col-e: #d5bdaf;
     justify-content: space-between;
     margin-bottom: 10px;
   }
+  .yield-ratio {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+
+    input {
+      width: 100px;
+    }
+  }
 }
 
 .main-container {
@@ -427,6 +437,7 @@ input {
 @media (max-width: 555px) {
   #root {
     border-radius: 0;
+    width: auto;
   }
   .App-header button {
     top: -35px;
@@ -435,8 +446,14 @@ input {
 
   .dropdown {
     top: -56px;
-    // width: 87%;
+    height: auto;
     border-radius: 0;
+    flex-direction: column;
+
+    .yield-calc {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
   .centre-container {

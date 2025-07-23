@@ -212,13 +212,16 @@ function App() {
             />
           </div>
           {/* <p>Yield Ratio: {yieldCalc} </p> */}
-          <label htmlFor="yieldRatio">Yield Ratio:</label>
-          <input
-            type="number"
-            id="yieldRatio"
-            value={settings.yieldRatio}
-            onChange={handleYieldRatioChange}
-          />
+          <div className="yield-ratio">
+            <label htmlFor="yieldRatio">Yield Ratio:</label>
+            <input
+              type="number"
+              id="yieldRatio"
+              value={settings.yieldRatio}
+              onChange={handleYieldRatioChange}
+            />
+          </div>
+
           <hr />
 
           <h4>Portion Sizes (g)</h4>
